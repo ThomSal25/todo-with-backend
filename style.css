@@ -1,0 +1,15 @@
+.is-done {
+    text-decoration: line-through;
+  }
+  
+  .out-of-filter {
+    display: none;
+  }
+  
+  .show-open .is-done {
+    display: none;
+  }
+  
+  .show-done > :not(.is-done) {
+    display: none;
+  }

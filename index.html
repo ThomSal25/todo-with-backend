@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo App with Backend</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="new-todo" />
+        <button id="btn-new-todo" type="submit">Add</button>
+        <button id="delete-all-done" type="button">Delete done todos</button>
+    </form>
+    <section class="filter">
+
+        <input type="radio" class="filter" id="all-todos" name="todo" checked>
+        <label for="all-todos">all todos</label>
+
+        <input type="radio" class="filter" id="open-todos" name="todo">
+        <label for="open-todos">open todos</label>
+
+        <input type="radio" class="filter" id="done-todos" name="todo">
+        <label for="done-todos">done todos</label>
+
+    </section>
+    <section>
+        <h1>Todos</h1>
+        <ul id="todo-list"></ul>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
