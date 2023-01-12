@@ -4,7 +4,6 @@ const btnDelDoneTodo = document.querySelector("#delete-all-done");
 const todoList = document.querySelector("#todo-list");
 const formElement = document.querySelector("form");
 
-
 let stateArr = [];
 
 loadTodos();
@@ -33,11 +32,9 @@ function renderTodos() {
 
     todoList.appendChild(newLi);
 
-    // console.log(todo.done, check.checked);
-
     if (todo.done === true) {
       check.checked = true;
-      newLi.classList.add("is-done")
+      newLi.classList.add("is-done");
     }
 
     check.addEventListener("change", changeDone);
@@ -47,7 +44,6 @@ function renderTodos() {
 function changeDone(event) {
   const liElement = event.target.parentNode;
   liElement.classList.toggle("is-done");
-  // console.log(event.target, event.target.id);
 
   //fetch Put
   updateTodo(event.target.id);
@@ -69,19 +65,19 @@ function updateTodo(num) {
         body: JSON.stringify(updatedTodo),
       })
         .then((res) => res.json())
-        .then((updatedTodoFromApi) => {
+        .then(() => {
           loadTodos();
         });
     }
   }
 }
 
-const allOpen = document.querySelector("#all-todos");
+const allTodos = document.querySelector("#all-todos");
 const openTodos = document.querySelector("#open-todos");
 const doneTodos = document.querySelector("#done-todos");
 const todoListElement = document.querySelector("#todo-list");
 
-allOpen.addEventListener("change", showListElement);
+allTodos.addEventListener("change", showListElement);
 openTodos.addEventListener("change", showListElement);
 doneTodos.addEventListener("change", showListElement);
 
@@ -95,10 +91,6 @@ function showListElement() {
   } else if (doneTodos.checked === true) {
     todoListElement.classList.add("show-done");
   }
-}
-
-function hideShow() {
-  console.log("👍")
 }
 
 btnAddTodo.addEventListener("click", postTodo);
@@ -116,9 +108,8 @@ function postTodo() {
     body: JSON.stringify(newTodo),
   })
     .then((response) => response.json())
-    .then((newTodoFromApi) => {
-      stateArr.push(newTodo);
-      renderTodos();
+    .then(() => {
+      loadTodos();
     });
 }
 
